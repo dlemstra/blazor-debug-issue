@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "poc", "dotnet\poc.csproj", "{D97BDF36-9FCD-4D2A-A862-F7984FF4D560}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "html", "html", "{99999E99-4DA3-4ED8-963C-5909D0EC6B8C}"
+	ProjectSection(SolutionItems) = preProject
+		html\index.html = html\index.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "batch-files", "batch-files", "{C352D14E-2E2B-4BE9-BAF4-72E5E1C14609}"
+	ProjectSection(SolutionItems) = preProject
+		start-http-server.cmd = start-http-server.cmd
+		start-debugging.cmd = start-debugging.cmd
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D97BDF36-9FCD-4D2A-A862-F7984FF4D560}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D97BDF36-9FCD-4D2A-A862-F7984FF4D560}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D97BDF36-9FCD-4D2A-A862-F7984FF4D560}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D97BDF36-9FCD-4D2A-A862-F7984FF4D560}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BDD4B429-CA32-4680-8CF5-C06BA4BC65E8}
+	EndGlobalSection
+EndGlobal

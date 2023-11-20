@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="bin/blazor.webassembly.js" autostart="false"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        let theAnswer;
+
+        const config = {
+            loadBootResource: function (_type, name, _defaultUri, _integrity) {
+                return `bin/${name}`;
+            }
+        }
+
+        Blazor.start(config).then(() => {
+            const runtime = getDotnetRuntime(0);
+            runtime.getAssemblyExports('poc').then((poc) => {
+                theAnswer = poc.poc.JavascriptExports.TheAnswer;
+
+                document.getElementById('poc').style.display = 'block';
+            });
+        });
+
+        function invokeAnswer() {
+            document.getElementById('answer').innerText = `The answer = ${theAnswer()}`;
+        }
+
+    </script>
+
+    <div id="poc" style="display: none">
+        <a href="http://localhost:8001/_framework/debug/?url=http%3A%2F%2Flocalhost%3A8000%2F" target="_blank">This works</a>
+
+        <button style="margin-left: 50px" onclick="window.open('http://localhost:8001/_framework/debug/?url=http%3A%2F%2Flocalhost%3A8000%2F')">This is broken</button>
+
+        <button style="margin-left: 50px" onclick="invokeAnswer()">Invoke dotnet code</button>
+
+        <span id="answer" style="margin-left: 50px"></span>
+    </div>
+</body>
+</html>

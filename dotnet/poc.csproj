@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+    <PropertyGroup>
+        <TargetFramework>net8</TargetFramework>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <DebuggerSupport>true</DebuggerSupport>
+    </PropertyGroup>
+    <ItemGroup>
+        <AssemblyAttribute Include="System.Runtime.Versioning.SupportedOSPlatformAttribute">
+            <_Parameter1>browser</_Parameter1>
+        </AssemblyAttribute>
+
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.0" />
+    </ItemGroup>
+
+    <PropertyGroup>
+        <BinDirectory>$(MSBuildThisFileDirectory)bin\$(Configuration)\net8\wwwroot\_framework</BinDirectory>
+        <HtmlFolder>$(MSBuildThisFileDirectory)..\html\bin</HtmlFolder>
+    </PropertyGroup>
+    <Target Name="CopyWasmBuild" AfterTargets="Build">
+        <Exec Command="rmdir /s /q &quot;$(HtmlFolder)&quot;" />
+        <Exec Command="xcopy /I /S &quot;$(BinDirectory)&quot; &quot;$(HtmlFolder)&quot;" />
+    </Target>
+</Project>
